@@ -262,7 +262,10 @@ class ShardTensor
 
     int device() const { return device_; }
 
-    int size(int dim) const { return shape_[dim]; }
+    int size(int dim) const { 
+        if (shape_.size() == 0) return 0;
+        return shape_[dim]; 
+    }
 
     int64_t stride(int dim) const
     {

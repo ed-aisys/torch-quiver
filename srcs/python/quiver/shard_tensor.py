@@ -144,7 +144,7 @@ class ShardTensor:
         if device == -1:
             if self.cpu_tensor is not None:
                 raise Exception("cpu tensor has been already appended")
-            self.cpu_tensor = cpu_tensor.clone()
+            self.cpu_tensor = cpu_tensor
             self.cpu_tensor.share_memory_()
             self.shard_tensor.append(cpu_tensor, -1)
             return
