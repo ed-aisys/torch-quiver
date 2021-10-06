@@ -54,7 +54,7 @@ class GraphSageSampler:
             (default: :obj: `True`)
     """
 
-    def __init__(self, edge_index: Union[Tensor, SparseTensor], sizes: List[int], device, num_nodes: Optional[int] = None, mode="UVA", device_replicate=True):
+    def __init__(self, edge_index: Tensor, sizes: List[int], device, num_nodes: Optional[int] = None, mode="UVA", device_replicate=True):
         edge_index = edge_index.to("cpu")
         self.is_sparse_tensor = isinstance(edge_index, SparseTensor)
 
